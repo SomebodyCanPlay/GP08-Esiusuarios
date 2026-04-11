@@ -1,0 +1,7 @@
+C:\Users\eduga\OneDrive\Documentos\GitHub\GP08-Esiusuarios\esiusuarios\src\main\java\uclm\esi\ds\esiusuarios\EsiusuariosApplication.java
+C:\Users\eduga\OneDrive\Documentos\GitHub\GP08-Esiusuarios\esiusuarios\src\main\java\uclm\esi\ds\esiusuarios\http\ExternalController.java
+C:\Users\eduga\OneDrive\Documentos\GitHub\GP08-Esiusuarios\esiusuarios\src\main\java\uclm\esi\ds\esiusuarios\http\UserController.java
+C:\Users\eduga\OneDrive\Documentos\GitHub\GP08-Esiusuarios\esiusuarios\src\main\java\uclm\esi\ds\esiusuarios\model\User.java
+C:\Users\eduga\OneDrive\Documentos\GitHub\GP08-Esiusuarios\esiusuarios\src\main\java\uclm\esi\ds\esiusuarios\services\UserService.java
+C:\Users\eduga\OneDrive\Documentos\GitHub\GP08-Esiusuarios\esiusuarios\src\main\resources\application.properties
+C:\Users\eduga\OneDrive\Documentos\GitHub\GP08-Esiusuarios\esiusuarios\src\test\java\uclm\esi\ds\esiusuarios\EsiusuariosApplicationTests.java

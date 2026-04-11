@@ -22,16 +22,30 @@ public class UserController {
     @PostMapping("/login")
     public String login(@RequestBody Map<String, String> credentials) {
         JSONObject jsoCredentials = new JSONObject(credentials);
-        String name = jsoCredentials.optString(name: "name");
-        String password = jsoCredentials.optString(name: "pwd");
+        String name = jsoCredentials.optString("name");
+        String password = jsoCredentials.optString("pwd");
 
         if (name.isEmpty() || password.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, reason: "Invalid credentials");
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid credentials");
         }
         String result = this.service.login(name, password);
         if (result == null) {
-            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, reason: "Invalid credentials");
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid credentials");
         }
         return result;
+    }
+
+    @PostMapping("/register")
+    public String register(@RequestBody Map<String, String> data) {
+        JSONObject jso = new JSONObject(data);
+        String name = jso.optString("name");
+        String password = jso.optString("pwd");
+
+        try {
+            this.service.register(name, password);
+            return "User registered successfully";
+        } catch (IllegalArgumentException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+        }
     }
 }
