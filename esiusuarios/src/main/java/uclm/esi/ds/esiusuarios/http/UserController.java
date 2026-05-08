@@ -9,7 +9,7 @@ import uclm.esi.ds.esiusuarios.services.UserService;
 
 import java.util.Map;
 
-// @RestController → esta clase es un controlador REST
+// @RestController → esta clase es un controlador REST (escucha pericones de internet http)
 // Recibe peticiones HTTP del frontend y devuelve respuestas JSON
 // @RequestMapping("/users") → todas las rutas de esta clase empiezan por /users
 // @CrossOrigin → permite que el frontend en puerto 4200 llame a este servidor (puerto 8081)
@@ -31,10 +31,9 @@ public class UserController {
     public ResponseEntity<String> register(@RequestBody Map<String, String> data) {
         try {
             String resultado = service.register(
-                data.get("email"),
-                data.get("pwd"),
-                data.get("nombre")
-            );
+                    data.get("email"),
+                    data.get("pwd"),
+                    data.get("nombre"));
             // 201 Created = registro exitoso
             return ResponseEntity.status(HttpStatus.CREATED).body(resultado);
 
@@ -55,9 +54,8 @@ public class UserController {
         try {
             // Llamamos al servicio, que verifica email+contraseña y devuelve el token
             String token = service.login(
-                credentials.get("email"),
-                credentials.get("pwd")
-            );
+                    credentials.get("email"),
+                    credentials.get("pwd"));
             // 200 OK + el token en el cuerpo de la respuesta
             return ResponseEntity.ok(token);
 
@@ -65,6 +63,17 @@ public class UserController {
             // 401 Unauthorized = credenciales incorrectas
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
         }
+    }
+
+    // ============================================================
+    // POST /users/logout
+    // Body: { "token": "..." }
+    // Borra el token de sesión de la BD para invalidar la sesión
+    // ============================================================
+    @PostMapping("/logout")
+    public ResponseEntity<String> logout(@RequestBody Map<String, String> data) {
+        service.logout(data.get("token"));
+        return ResponseEntity.ok("Sesión cerrada correctamente.");
     }
 
     // ============================================================
@@ -89,9 +98,8 @@ public class UserController {
     public ResponseEntity<String> restablecerPassword(@RequestBody Map<String, String> data) {
         try {
             service.restablecerPassword(
-                data.get("codigo"),
-                data.get("nuevaPassword")
-            );
+                    data.get("codigo"),
+                    data.get("nuevaPassword"));
             return ResponseEntity.ok("Contraseña actualizada correctamente.");
 
         } catch (IllegalArgumentException e) {
@@ -108,13 +116,12 @@ public class UserController {
     public ResponseEntity<String> cancelarCuenta(@RequestBody Map<String, String> data) {
         try {
             service.cancelarCuenta(
-                data.get("email"),
-                data.get("pwd")
-            );
+                    data.get("email"),
+                    data.get("pwd"));
             return ResponseEntity.ok("Cuenta cancelada correctamente.");
 
         } catch (IllegalArgumentException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
-}
+}

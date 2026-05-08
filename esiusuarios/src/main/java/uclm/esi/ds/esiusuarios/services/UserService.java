@@ -43,8 +43,8 @@ public class UserService {
 
         // Validación básica: comprobar que no vienen vacíos
         if (email == null || email.isBlank() ||
-            password == null || password.isBlank() ||
-            nombre == null || nombre.isBlank()) {
+                password == null || password.isBlank() ||
+                nombre == null || nombre.isBlank()) {
             throw new IllegalArgumentException("Email, contraseña y nombre son obligatorios");
         }
 
@@ -74,7 +74,8 @@ public class UserService {
     // ============================================================
     // Recibe email y contraseña en texto plano
     // Si son correctos, genera un token UUID, lo guarda en BD y lo devuelve
-    // El token es lo que esientradas nos pedirá para confirmar que el usuario está logueado
+    // El token es lo que esientradas nos pedirá para confirmar que el usuario está
+    // logueado
     @Transactional
     public String login(String email, String password) {
 
@@ -93,7 +94,8 @@ public class UserService {
             throw new IllegalArgumentException("Esta cuenta está cancelada");
         }
 
-        // encoder.matches("1234", "$2a$10$xKG...") → compara texto plano con el hash guardado
+        // encoder.matches("1234", "$2a$10$xKG...") → compara texto plano con el hash
+        // guardado
         // Devuelve true si la contraseña es correcta, false si no
         if (!encoder.matches(password, user.getPasswordHash())) {
             throw new IllegalArgumentException("Email o contraseña incorrectos");
@@ -106,8 +108,25 @@ public class UserService {
         // Guardar el token en la BD (en la columna token_sesion del usuario)
         userDao.actualizarTokenSesion(email, nuevoToken);
 
-        // Devolver el token → el frontend lo guardará y lo enviará a esientradas al comprar
+        // Devolver el token → el frontend lo guardará y lo enviará a esientradas al
+        // comprar
         return nuevoToken;
+    }
+
+    // ============================================================
+    // LOGOUT (cerrar sesión)
+    // ============================================================
+    // Busca el usuario que tiene ese token y lo pone a null en la BD.
+    // Así el token deja de ser válido aunque alguien lo tenga guardado.
+    @Transactional
+    public void logout(String token) {
+        if (token == null || token.isBlank())
+            return;
+        // Buscamos el usuario que tiene ese token activo
+        userDao.findByTokenSesion(token).ifPresent(user -> {
+            user.setTokenSesion(null);
+            userDao.save(user);
+        });
     }
 
     // ============================================================
@@ -225,5 +244,10 @@ public class UserService {
         // No borramos el usuario de la BD, solo lo marcamos como inactivo
         // Así conservamos el historial de compras
         userDao.desactivarCuenta(email);
+
+        // ============================================================
+        // AQUÍ AÑADIMOS EL ENVÍO DEL CORREO DE DESPEDIDA
+        // ============================================================
+        emailService.sendAccountCancellationEmail(email);
     }
-}
+}

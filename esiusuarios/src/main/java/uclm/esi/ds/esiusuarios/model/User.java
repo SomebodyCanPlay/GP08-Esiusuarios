@@ -1,7 +1,7 @@
 package uclm.esi.ds.esiusuarios.model;
 
-// Estas son las "etiquetas" (anotaciones) que le dicen a Spring:
-// "esta clase representa una tabla en la base de datos"
+// Estas son las "etiquetas" que le dicen a Spring:
+// esta clase representa una tabla en la base de datos
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
@@ -15,7 +15,7 @@ import jakarta.persistence.Column;
 @Table(name = "usuario")
 public class User {
 
-    // @Id → esta campo es la clave primaria (como el DNI de cada fila)
+    // @Id → esta campo es la clave primaria
     // @GeneratedValue → MySQL le pone el número automáticamente (AUTO_INCREMENT)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,7 +38,8 @@ public class User {
     private String nombre;
 
     // Token que se genera cuando el usuario hace login correctamente.
-    // Este token es el que esientradas le pedirá para confirmar que el usuario está logueado.
+    // Este token es el que esientradas le pedirá para confirmar que el usuario está
+    // logueado.
     // Puede ser null si el usuario no ha hecho login todavía.
     @Column(name = "token_sesion", length = 100)
     private String tokenSesion;
@@ -48,8 +49,10 @@ public class User {
     @Column(name = "activo", nullable = false, columnDefinition = "TINYINT(1) DEFAULT 1")
     private boolean activo = true;
 
-    // Constructor vacío: Spring lo necesita obligatoriamente para crear objetos desde la BD
-    public User() {}
+    // Constructor vacío: Spring lo necesita obligatoriamente para crear objetos
+    // desde la BD
+    public User() {
+    }
 
     // Constructor para registrar un usuario nuevo
     public User(String email, String passwordHash, String nombre) {
@@ -106,4 +109,4 @@ public class User {
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
-}
+}
