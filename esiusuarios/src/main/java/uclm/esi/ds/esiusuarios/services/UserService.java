@@ -241,13 +241,13 @@ public class UserService {
             throw new IllegalArgumentException("Contraseña incorrecta");
         }
 
-        // No borramos el usuario de la BD, solo lo marcamos como inactivo
-        // Así conservamos el historial de compras
-        userDao.desactivarCuenta(email);
+        // 1. Borramos cualquier token de recuperación que tenga este email
+        tokenRecuperacionDao.deleteByEmail(email);
 
-        // ============================================================
-        // AQUÍ AÑADIMOS EL ENVÍO DEL CORREO DE DESPEDIDA
-        // ============================================================
+        // 2. Borramos al usuario de la base de datos (BORRADO TOTAL)
+        userDao.delete(user);
+
+        // 3. Enviamos el correo de despedida
         emailService.sendAccountCancellationEmail(email);
     }
 }

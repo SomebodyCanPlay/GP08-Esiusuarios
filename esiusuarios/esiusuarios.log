@@ -1,0 +1,96 @@
+2026-05-08T13:44:04.940+02:00  INFO 21116 --- [esiusuarios] [main] u.e.d.e.EsiusuariosApplication           : Starting EsiusuariosApplication using Java 21 with PID 21116 (C:\Users\eduga\OneDrive\Documentos\GitHub\GP08-Esiusuarios\esiusuarios\build\classes\java\main started by eduga in C:\Users\eduga\OneDrive\Documentos\GitHub\GP08-Esiusuarios\esiusuarios)
+2026-05-08T13:44:04.944+02:00  INFO 21116 --- [esiusuarios] [main] u.e.d.e.EsiusuariosApplication           : No active profile set, falling back to 1 default profile: "default"
+2026-05-08T13:44:05.598+02:00  INFO 21116 --- [esiusuarios] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-08T13:44:05.661+02:00  INFO 21116 --- [esiusuarios] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 2 JPA repository interfaces.
+2026-05-08T13:44:06.193+02:00  INFO 21116 --- [esiusuarios] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-05-08T13:44:06.211+02:00  INFO 21116 --- [esiusuarios] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-08T13:44:06.212+02:00  INFO 21116 --- [esiusuarios] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.52]
+2026-05-08T13:44:06.280+02:00  INFO 21116 --- [esiusuarios] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-05-08T13:44:06.281+02:00  INFO 21116 --- [esiusuarios] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1295 ms
+2026-05-08T13:44:06.572+02:00  INFO 21116 --- [esiusuarios] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-08T13:44:06.657+02:00  INFO 21116 --- [esiusuarios] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.42.Final
+2026-05-08T13:44:06.736+02:00  INFO 21116 --- [esiusuarios] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-05-08T13:44:07.147+02:00  INFO 21116 --- [esiusuarios] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-08T13:44:07.203+02:00  INFO 21116 --- [esiusuarios] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-08T13:44:07.461+02:00  INFO 21116 --- [esiusuarios] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@a357c3e
+2026-05-08T13:44:07.464+02:00  INFO 21116 --- [esiusuarios] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-08T13:44:07.529+02:00  WARN 21116 --- [esiusuarios] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-08T13:44:07.561+02:00  INFO 21116 --- [esiusuarios] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.39
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-08T13:44:08.867+02:00  INFO 21116 --- [esiusuarios] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-08T13:44:08.870+02:00  INFO 21116 --- [esiusuarios] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-08T13:44:09.083+02:00  INFO 21116 --- [esiusuarios] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-08T13:44:09.766+02:00  INFO 21116 --- [esiusuarios] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-08T13:44:09.996+02:00  INFO 21116 --- [esiusuarios] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2026-05-08T13:44:10.002+02:00  INFO 21116 --- [esiusuarios] [main] u.e.d.e.EsiusuariosApplication           : Started EsiusuariosApplication in 5.539 seconds (process running for 5.938)
+2026-05-08T13:44:34.402+02:00  INFO 21116 --- [esiusuarios] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-08T13:44:34.402+02:00  INFO 21116 --- [esiusuarios] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-05-08T13:44:34.404+02:00  INFO 21116 --- [esiusuarios] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-05-08T17:06:57.252+02:00  INFO 31252 --- [esiusuarios] [main] u.e.d.e.EsiusuariosApplication           : Starting EsiusuariosApplication using Java 21 with PID 31252 (C:\Users\eduga\OneDrive\Documentos\GitHub\GP08-Esiusuarios\esiusuarios\build\classes\java\main started by eduga in C:\Users\eduga\OneDrive\Documentos\GitHub\GP08-Esiusuarios\esiusuarios)
+2026-05-08T17:06:57.257+02:00  INFO 31252 --- [esiusuarios] [main] u.e.d.e.EsiusuariosApplication           : No active profile set, falling back to 1 default profile: "default"
+2026-05-08T17:06:58.230+02:00  INFO 31252 --- [esiusuarios] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-08T17:06:58.307+02:00  INFO 31252 --- [esiusuarios] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 68 ms. Found 2 JPA repository interfaces.
+2026-05-08T17:06:58.964+02:00  INFO 31252 --- [esiusuarios] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-05-08T17:06:58.982+02:00  INFO 31252 --- [esiusuarios] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-08T17:06:58.982+02:00  INFO 31252 --- [esiusuarios] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.52]
+2026-05-08T17:06:59.041+02:00  INFO 31252 --- [esiusuarios] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-05-08T17:06:59.042+02:00  INFO 31252 --- [esiusuarios] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1711 ms
+2026-05-08T17:06:59.256+02:00  INFO 31252 --- [esiusuarios] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-08T17:06:59.308+02:00  INFO 31252 --- [esiusuarios] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.42.Final
+2026-05-08T17:06:59.341+02:00  INFO 31252 --- [esiusuarios] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-05-08T17:06:59.626+02:00  INFO 31252 --- [esiusuarios] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-08T17:06:59.658+02:00  INFO 31252 --- [esiusuarios] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-08T17:06:59.901+02:00  INFO 31252 --- [esiusuarios] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4f402027
+2026-05-08T17:06:59.905+02:00  INFO 31252 --- [esiusuarios] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-08T17:06:59.982+02:00  WARN 31252 --- [esiusuarios] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-08T17:07:00.004+02:00  INFO 31252 --- [esiusuarios] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.39
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-08T17:07:01.558+02:00  INFO 31252 --- [esiusuarios] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-08T17:07:01.565+02:00  INFO 31252 --- [esiusuarios] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-08T17:07:02.152+02:00  INFO 31252 --- [esiusuarios] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-08T17:07:04.409+02:00  INFO 31252 --- [esiusuarios] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-08T17:07:04.999+02:00  INFO 31252 --- [esiusuarios] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2026-05-08T17:07:05.009+02:00  INFO 31252 --- [esiusuarios] [main] u.e.d.e.EsiusuariosApplication           : Started EsiusuariosApplication in 8.525 seconds (process running for 9.144)
+2026-05-08T17:08:50.801+02:00  INFO 33412 --- [esiusuarios] [main] u.e.d.e.EsiusuariosApplication           : Starting EsiusuariosApplication using Java 21 with PID 33412 (C:\Users\eduga\OneDrive\Documentos\GitHub\GP08-Esiusuarios\esiusuarios\build\classes\java\main started by eduga in C:\Users\eduga\OneDrive\Documentos\GitHub\GP08-Esiusuarios\esiusuarios)
+2026-05-08T17:08:50.807+02:00  INFO 33412 --- [esiusuarios] [main] u.e.d.e.EsiusuariosApplication           : No active profile set, falling back to 1 default profile: "default"
+2026-05-08T17:08:52.424+02:00  INFO 33412 --- [esiusuarios] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-08T17:08:52.562+02:00  INFO 33412 --- [esiusuarios] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 118 ms. Found 2 JPA repository interfaces.
+2026-05-08T17:08:53.594+02:00  INFO 33412 --- [esiusuarios] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-05-08T17:08:53.627+02:00  INFO 33412 --- [esiusuarios] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-08T17:08:53.628+02:00  INFO 33412 --- [esiusuarios] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.52]
+2026-05-08T17:08:53.748+02:00  INFO 33412 --- [esiusuarios] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-05-08T17:08:53.749+02:00  INFO 33412 --- [esiusuarios] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2869 ms
+2026-05-08T17:08:54.077+02:00  INFO 33412 --- [esiusuarios] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-08T17:08:54.162+02:00  INFO 33412 --- [esiusuarios] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.42.Final
+2026-05-08T17:08:54.233+02:00  INFO 33412 --- [esiusuarios] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-05-08T17:08:54.738+02:00  INFO 33412 --- [esiusuarios] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-08T17:08:54.794+02:00  INFO 33412 --- [esiusuarios] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-08T17:08:55.073+02:00  INFO 33412 --- [esiusuarios] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@13e1e816
+2026-05-08T17:08:55.076+02:00  INFO 33412 --- [esiusuarios] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-08T17:08:55.142+02:00  WARN 33412 --- [esiusuarios] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-08T17:08:55.169+02:00  INFO 33412 --- [esiusuarios] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.39
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-08T17:08:56.416+02:00  INFO 33412 --- [esiusuarios] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-08T17:08:56.421+02:00  INFO 33412 --- [esiusuarios] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-08T17:08:56.802+02:00  INFO 33412 --- [esiusuarios] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-08T17:08:57.713+02:00  INFO 33412 --- [esiusuarios] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-08T17:08:58.036+02:00  INFO 33412 --- [esiusuarios] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2026-05-08T17:08:58.041+02:00  INFO 33412 --- [esiusuarios] [main] u.e.d.e.EsiusuariosApplication           : Started EsiusuariosApplication in 8.071 seconds (process running for 8.796)
