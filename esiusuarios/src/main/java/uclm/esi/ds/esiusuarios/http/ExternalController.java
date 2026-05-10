@@ -39,21 +39,3 @@ public class ExternalController {
         }
     }
 }
-            // Preguntamos al servicio: ¿existe alguien con este token?
-            String email = service.checkToken(token);
-
-            if (email != null) {
-                // Token válido → devolvemos el email para que esientradas lo use
-                return ResponseEntity.ok(email);
-            } else {
-                // Token no válido o caducado
-                return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                        .body("Token no válido o sesión caducada");
-            }
-        } catch (Exception e) {
-            e.printStackTrace(); // Esto saldrá en la consola de Eclipse
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Error en esiusuarios: " + e.getMessage() + " (Clase: " + e.getClass().getSimpleName() + ")");
-        }
-    }
-}

@@ -27,16 +27,3 @@ public interface UserDao extends JpaRepository<User, Long> {
     @Query("UPDATE User u SET u.activo = false WHERE u.email = :email")
     void desactivarCuenta(@Param("email") String email);
 }
-    // @Modifying → le dice a Spring que esta query modifica datos (UPDATE/DELETE)
-    // @Query      → aquí escribimos el JPQL (es como SQL pero con nombres de clase Java)
-    @Modifying
-    @Query("UPDATE User u SET u.tokenSesion = :token WHERE u.email = :email")
-    void actualizarTokenSesion(@Param("email") String email, @Param("token") String token);
-
-    // Desactiva la cuenta de un usuario (cancelar cuenta)
-    // En vez de borrar al usuario de la BD, ponemos activo = false
-    @Modifying
-    @Query("UPDATE User u SET u.activo = false WHERE u.email = :email")
-    void desactivarCuenta(@Param("email") String email);
-}
-
