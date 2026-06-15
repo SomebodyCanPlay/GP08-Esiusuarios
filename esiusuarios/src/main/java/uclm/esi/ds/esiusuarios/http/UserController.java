@@ -1,13 +1,21 @@
 package uclm.esi.ds.esiusuarios.http;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import uclm.esi.ds.esiusuarios.services.UserService;
-
-import java.util.Map;
 
 @RestController
 @RequestMapping("/users")
@@ -87,4 +95,19 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
+
+    // En la clase UserController
+
+    @GetMapping("/confirmar-cuenta")
+    public ResponseEntity<String> confirmarCuenta(@RequestParam("token") String token) {
+        try {
+            service.confirmarCuenta(token);
+            String successHtml = "<html><body style='font-family: sans-serif; text-align: center;'><h1>¡Cuenta activada!</h1><p>Tu cuenta ha sido activada correctamente. Ya puedes cerrar esta ventana e iniciar sesión.</p></body></html>";
+            return ResponseEntity.ok(successHtml);
+        } catch (ResponseStatusException e) {
+            String errorHtml = "<html><body style='font-family: sans-serif; text-align: center;'><h1>Error</h1><p>" + e.getReason() + "</p></body></html>";
+            return new ResponseEntity<>(errorHtml, e.getStatusCode());
+        }
+    }
+
 }

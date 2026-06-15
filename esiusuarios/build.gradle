@@ -25,8 +25,8 @@ dependencies {
 	// Spring Data JPA: para guardar cosas en base de datos con @Entity y @Repository
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
-	// Driver de MySQL: el "traductor" que sabe hablar con MySQL (igual que en esientradas)
-	runtimeOnly 'com.mysql:mysql-connector-j'
+	// Driver de SQL Server: el "traductor" que sabe hablar con SQL Server
+	runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
 
 	// Spring Security: incluye BCrypt para cifrar contraseñas de forma segura
 	implementation 'org.springframework.boot:spring-boot-starter-security'

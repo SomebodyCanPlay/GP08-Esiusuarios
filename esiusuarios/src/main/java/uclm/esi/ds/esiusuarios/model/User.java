@@ -1,11 +1,11 @@
 package uclm.esi.ds.esiusuarios.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.Column;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "usuario")
@@ -28,9 +28,9 @@ public class User {
     @Column(name = "token_sesion", length = 100)
     private String tokenSesion;
 
-    // Cuenta activa/inactiva
-    @Column(name = "activo", nullable = false, columnDefinition = "TINYINT(1) DEFAULT 1")
-    private boolean activo = true;
+    // Cuenta activa/inactiva. En SQL Server, 'boolean' se mapea a 'BIT'.
+    @Column(name = "activo", nullable = false)
+    private boolean activo = false; // Por defecto, la cuenta está inactiva
 
     public User() {
     }
@@ -39,7 +39,7 @@ public class User {
         this.email = email;
         this.passwordHash = passwordHash;
         this.nombre = nombre;
-        this.activo = true;
+        this.activo = false; // Aseguramos que el constructor también la pone inactiva
     }
 
     public Long getId() {
@@ -86,4 +86,3 @@ public class User {
         this.activo = activo;
     }
 }
-
