@@ -43,6 +43,10 @@ public class UserService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Email, contraseña y nombre son obligatorios");
         }
 
+        if (!esPasswordRobusta(password)) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La contraseña no cumple con los requisitos mínimos de seguridad.");
+        }
+
         if (userDao.findByEmail(email).isPresent()) {
             // Devolvemos un 409 Conflict, que es más apropiado. El frontend ya lo gestiona.
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Ya existe una cuenta con ese email");
@@ -56,6 +60,14 @@ public class UserService {
         enviarCorreoDeActivacion(nuevoUsuario);
 
         return "Usuario registrado correctamente";
+    }
+
+    private boolean esPasswordRobusta(String pwd) {
+        if (pwd.length() < 8) return false;
+        if (!pwd.matches(".*[A-ZÁÉÍÓÚÜÑ].*")) return false; // Al menos una mayúscula
+        if (!pwd.matches(".*[a-záéíóúüñ].*")) return false; // Al menos una minúscula
+        if (!pwd.matches(".*[\\d!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?`~].*")) return false; // Al menos un número o especial
+        return true;
     }
 
     // --> MÉTODO LOGIN MODIFICADO
@@ -126,6 +138,10 @@ public class UserService {
         if (tokenRec.haExpirado()) {
             tokenRecuperacionDao.delete(tokenRec);
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El código ha caducado. Solicita uno nuevo.");
+        }
+
+        if (!esPasswordRobusta(nuevaPassword)) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La nueva contraseña no cumple con los requisitos mínimos de seguridad.");
         }
 
         User user = userDao.findByEmail(tokenRec.getEmail())
