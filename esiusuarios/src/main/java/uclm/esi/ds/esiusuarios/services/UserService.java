@@ -180,8 +180,6 @@ public class UserService {
         User user = userDao.findByEmail(token.getUserEmail())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario asociado al token no encontrado."));
 
-        // Si la cuenta ya está activa, no hacemos nada más para no reenviar el email.
-        // Simplemente borramos el token y terminamos.
         if (user.isActivo()) {
             tokenConfirmacionRepository.delete(token);
             return;
@@ -190,10 +188,8 @@ public class UserService {
         user.setActivo(true);
         userDao.save(user);
 
-        // Una vez activada, enviamos el email de bienvenida.
         emailService.sendWelcomeEmail(user.getEmail(), user.getNombre());
 
-        // Borramos el token para que no se pueda volver a usar.
         tokenConfirmacionRepository.delete(token);
     }
 
@@ -203,5 +199,46 @@ public class UserService {
         TokenConfirmacion token = new TokenConfirmacion(tokenValue, user.getEmail());
         tokenConfirmacionRepository.save(token);
         emailService.enviarCorreoConfirmacion(user.getEmail(), tokenValue);
+    }
+
+    // =========================================
+    // MÉTODOS DEL MONEDERO (NUEVO)
+    // =========================================
+
+    // Obtener saldo actual
+    public Double obtenerSaldo(String token) {
+        User user = userDao.findByTokenSesion(token)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Token no válido"));
+        return user.getSaldoMonedero();
+    }
+
+    // Sumar saldo al monedero (cuando se cancela una entrada)
+    @Transactional
+    public void sumarSaldo(String email, Double cantidad) {
+        if (cantidad == null || cantidad <= 0) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La cantidad a sumar debe ser mayor que cero");
+        }
+        User user = userDao.findByEmail(email)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario no encontrado"));
+
+        user.setSaldoMonedero(user.getSaldoMonedero() + cantidad);
+        userDao.save(user);
+    }
+    
+    // Restar saldo del monedero (para cuando compre usando el saldo)
+    @Transactional
+    public void restarSaldo(String email, Double cantidad) {
+        if (cantidad == null || cantidad <= 0) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La cantidad a restar debe ser mayor que cero");
+        }
+        User user = userDao.findByEmail(email)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario no encontrado"));
+
+        if (user.getSaldoMonedero() < cantidad) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Saldo insuficiente en el monedero");
+        }
+
+        user.setSaldoMonedero(user.getSaldoMonedero() - cantidad);
+        userDao.save(user);
     }
 }

@@ -96,8 +96,6 @@ public class UserController {
         }
     }
 
-    // En la clase UserController
-
     @GetMapping("/confirmar-cuenta")
     public ResponseEntity<String> confirmarCuenta(@RequestParam("token") String token) {
         try {
@@ -110,4 +108,47 @@ public class UserController {
         }
     }
 
+    // --> ENDPOINTS DEL MONEDERO <--
+
+    // Obtener saldo del monedero (Frontend lo llamará para mostrar el iconito)
+    @PostMapping("/saldo")
+    public ResponseEntity<Double> obtenerSaldo(@RequestBody Map<String, String> data) {
+        try {
+            Double saldo = service.obtenerSaldo(data.get("token"));
+            return ResponseEntity.ok(saldo);
+        } catch (ResponseStatusException e) {
+            return ResponseEntity.status(e.getStatusCode()).body(0.0);
+        }
+    }
+
+    // Sumar saldo (Llamado desde el microservicio esientradas al cancelar)
+    @PostMapping("/sumarSaldo")
+    public ResponseEntity<String> sumarSaldo(@RequestBody Map<String, Object> data) {
+        try {
+            String email = (String) data.get("email");
+            // Usamos Double.valueOf para evitar errores si el JSON manda un entero en vez de decimal
+            Double cantidad = Double.valueOf(data.get("cantidad").toString());
+            
+            service.sumarSaldo(email, cantidad);
+            return ResponseEntity.ok("Saldo añadido correctamente.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error al sumar saldo: " + e.getMessage());
+        }
+    }
+
+    // Restar saldo (Llamado desde el microservicio esientradas al comprar con monedero)
+    @PostMapping("/restarSaldo")
+    public ResponseEntity<String> restarSaldo(@RequestBody Map<String, Object> data) {
+        try {
+            String email = (String) data.get("email");
+            Double cantidad = Double.valueOf(data.get("cantidad").toString());
+            
+            service.restarSaldo(email, cantidad);
+            return ResponseEntity.ok("Saldo restado correctamente.");
+        } catch (ResponseStatusException e) {
+            return ResponseEntity.status(e.getStatusCode()).body(e.getReason());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error al restar saldo: " + e.getMessage());
+        }
+    }
 }

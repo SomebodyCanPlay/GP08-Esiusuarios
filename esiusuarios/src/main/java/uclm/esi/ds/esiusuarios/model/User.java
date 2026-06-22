@@ -32,6 +32,10 @@ public class User {
     @Column(name = "activo", nullable = false)
     private boolean activo = false; // Por defecto, la cuenta está inactiva
 
+    // NUEVO: Monedero virtual del usuario
+    @Column(name = "saldo_monedero", nullable = false)
+    private Double saldoMonedero = 0.0;
+
     public User() {
     }
 
@@ -39,7 +43,8 @@ public class User {
         this.email = email;
         this.passwordHash = passwordHash;
         this.nombre = nombre;
-        this.activo = false; // Aseguramos que el constructor también la pone inactiva
+        this.activo = false; 
+        this.saldoMonedero = 0.0; // Inicializamos a 0 al registrarse
     }
 
     public Long getId() {
@@ -84,5 +89,14 @@ public class User {
 
     public void setActivo(boolean activo) {
         this.activo = activo;
+    }
+
+    // --- GETTERS Y SETTERS DEL MONEDERO ---
+    public Double getSaldoMonedero() {
+        return saldoMonedero;
+    }
+
+    public void setSaldoMonedero(Double saldoMonedero) {
+        this.saldoMonedero = saldoMonedero;
     }
 }
