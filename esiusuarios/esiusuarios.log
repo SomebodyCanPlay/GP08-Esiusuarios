@@ -540,3 +540,37 @@ com.microsoft.sqlserver.jdbc.SQLServerException: El nombre de columna 'saldo_mon
 2026-06-22T12:40:37.412+02:00  INFO 19908 --- [esiusuarios] [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2026-06-22T12:40:37.413+02:00  INFO 19908 --- [esiusuarios] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2026-06-22T12:40:37.415+02:00  INFO 19908 --- [esiusuarios] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-06-22T16:30:50.653+02:00  INFO 23800 --- [esiusuarios] [main] u.e.d.e.EsiusuariosApplication           : Starting EsiusuariosApplication using Java 21 with PID 23800 (C:\Users\eduga\Universidad\entregaDiseno\GP08-Esiusuarios\esiusuarios\build\classes\java\main started by eduga in C:\Users\eduga\Universidad\entregaDiseno\GP08-Esiusuarios\esiusuarios)
+2026-06-22T16:30:50.654+02:00  INFO 23800 --- [esiusuarios] [main] u.e.d.e.EsiusuariosApplication           : No active profile set, falling back to 1 default profile: "default"
+2026-06-22T16:30:51.146+02:00  INFO 23800 --- [esiusuarios] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-22T16:30:51.183+02:00  INFO 23800 --- [esiusuarios] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31 ms. Found 3 JPA repository interfaces.
+2026-06-22T16:30:51.533+02:00  INFO 23800 --- [esiusuarios] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-06-22T16:30:51.545+02:00  INFO 23800 --- [esiusuarios] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-22T16:30:51.546+02:00  INFO 23800 --- [esiusuarios] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.52]
+2026-06-22T16:30:51.594+02:00  INFO 23800 --- [esiusuarios] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-06-22T16:30:51.595+02:00  INFO 23800 --- [esiusuarios] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 907 ms
+2026-06-22T16:30:51.772+02:00  INFO 23800 --- [esiusuarios] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-22T16:30:51.819+02:00  INFO 23800 --- [esiusuarios] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.42.Final
+2026-06-22T16:30:51.848+02:00  INFO 23800 --- [esiusuarios] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-22T16:30:52.072+02:00  INFO 23800 --- [esiusuarios] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-22T16:30:52.096+02:00  INFO 23800 --- [esiusuarios] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-22T16:30:52.416+02:00  INFO 23800 --- [esiusuarios] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: 4b36cd1e-d7cb-4730-9b76-174010430ce4
+2026-06-22T16:30:52.417+02:00  INFO 23800 --- [esiusuarios] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-22T16:30:52.497+02:00  WARN 23800 --- [esiusuarios] [main] org.hibernate.orm.deprecation            : HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-22T16:30:52.517+02:00  INFO 23800 --- [esiusuarios] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-22T16:30:53.103+02:00  INFO 23800 --- [esiusuarios] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-22T16:30:53.447+02:00  INFO 23800 --- [esiusuarios] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-22T16:30:53.616+02:00  INFO 23800 --- [esiusuarios] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-06-22T16:30:54.129+02:00  INFO 23800 --- [esiusuarios] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-06-22T16:30:54.317+02:00  INFO 23800 --- [esiusuarios] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2026-06-22T16:30:54.321+02:00  INFO 23800 --- [esiusuarios] [main] u.e.d.e.EsiusuariosApplication           : Started EsiusuariosApplication in 4.009 seconds (process running for 4.231)
+2026-06-22T16:32:05.529+02:00  INFO 23800 --- [esiusuarios] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-22T16:32:05.529+02:00  INFO 23800 --- [esiusuarios] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-22T16:32:05.530+02:00  INFO 23800 --- [esiusuarios] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
